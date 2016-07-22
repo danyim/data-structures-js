@@ -1,0 +1,24 @@
+{
+  "name": "data-structures-js",
+  "version": "0.0.1",
+  "description": "Data structures in Javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danyim/data-structures-js.git"
+  },
+  "keywords": [
+    "data-structures",
+    "algorithms",
+    "cs-topics"
+  ],
+  "author": "Daniel Yim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/danyim/data-structures-js/issues"
+  },
+  "homepage": "https://github.com/danyim/data-structures-js#readme"
+}
