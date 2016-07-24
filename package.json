@@ -3,8 +3,11 @@
   "version": "0.0.1",
   "description": "Data structures in Javascript",
   "main": "app.js",
+  "engines": {
+    "node": ">=0.10.0"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
@@ -20,5 +23,18 @@
   "bugs": {
     "url": "https://github.com/danyim/data-structures-js/issues"
   },
-  "homepage": "https://github.com/danyim/data-structures-js#readme"
+  "homepage": "https://github.com/danyim/data-structures-js#readme",
+  "devDependencies": {
+    "ava": "*",
+    "xo": "*"
+  },
+  "ava": {
+    "files": [
+      "src/*.spec.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "babel": "inherit"
+  }
 }
