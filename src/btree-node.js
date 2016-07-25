@@ -1,14 +1,11 @@
-var BTreeNode;
+'use strict';
 
-BTreeNode = (function() {
-
-  function TreeNode() {
+class TreeNode {
+  constructor(value = null) {
     this.left = null;
     this.right = null;
+    this.value = value;
   }
+}
 
-  return BTreeNode;
-
-})();
-
-module.exports = BTreeNode;
+export default TreeNode;

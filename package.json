@@ -7,7 +7,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava -v"
   },
   "repository": {
     "type": "git",
@@ -36,5 +36,8 @@
       "babel-register"
     ],
     "babel": "inherit"
+  },
+  "xo": {
+    "space": true
   }
 }
