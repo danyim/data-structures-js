@@ -1,5 +1,7 @@
 # CS 2XX: Data Structures
 
+[![Build Status](https://travis-ci.org/danyim/data-structures-js.svg?branch=master)](https://travis-ci.org/danyim/data-structures-js)
+
 ## Purpose
 This repo is designed to help review canonical CS topics such as data structures and sorting/searching algorithms using Javascript. Everything is written in ES6 syntax and has accompanying tests. This project was used to practice ES6, TDD, and Node.
 

@@ -26,8 +26,6 @@
   "homepage": "https://github.com/danyim/data-structures-js#readme",
   "devDependencies": {
     "ava": "*",
-    "coveralls": "^2.11.11",
-    "tap": "^6.2.0",
     "xo": "*"
   },
   "ava": {
