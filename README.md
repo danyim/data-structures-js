@@ -3,9 +3,10 @@
 [![Build Status](https://travis-ci.org/danyim/data-structures-js.svg?branch=master)](https://travis-ci.org/danyim/data-structures-js)
 
 ## Purpose
-This repo is designed to help review canonical CS topics such as data structures and sorting/searching algorithms using Javascript. Everything is written in ES6 syntax and has accompanying tests. This project was used to practice ES6, TDD, and Node.
+This repo contains a study of canonical CS topics such as data structures and sorting/searching algorithms using Javascript & NodeJS. The goals of this project are to document every major data structure in the computer science curriculum in ES6 Javascript modules, along with accompanying tests.
 
-## Tools
+## Tooling
 - **Testing: [Ava](https://github.com/avajs/ava)**
   - Using this project to learn how to use Ava as the test runner
 - **ES6: [Babel](https://babeljs.io/)**
+- **Code Style/Linting: [xo](https://github.com/sindresorhus/xo)**
