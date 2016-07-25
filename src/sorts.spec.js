@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import {bubble, insertion, merge, quick} from './sorts';
+import {bubble/* , insertion, merge, quick */} from './sorts';
 
 let set1;
 
