@@ -7,7 +7,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && ava -v"
+    "test": "xo && nyc ava -v"
   },
   "repository": {
     "type": "git",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/danyim/data-structures-js#readme",
   "devDependencies": {
     "ava": "*",
+    "nyc": "*",
     "xo": "*"
   },
   "ava": {
@@ -38,6 +39,6 @@
     "babel": "inherit"
   },
   "xo": {
-    "space": true
+    "space": 2
   }
 }

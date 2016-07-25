@@ -20,9 +20,15 @@ test('creates binary tree node', t => {
   t.true(node.left !== undefined && node.right !== undefined && node.value === someValue);
 });
 
+test('prints empty string', t => {
+  let tree = new BTree();
+  t.true(tree.toString().includes('<null>'));
+});
+
 test('prints tree nodes', t => {
   let tree = new BTree();
-  t.true(tree.toString !== 'undefined' && tree.toString() !== '');
+  tree.insert(25);
+  t.true(tree.toString().includes('25'));
 });
 
 test('inserts first value as root', t => {
@@ -73,7 +79,16 @@ test('searches for and finds a value', t => {
   t.true(search.value === 15);
 });
 
-test('counts # of nodes', t => {
+test('searches for and doesn\'t find value', t => {
+  let tree = new BTree();
+  tree.insert(25);
+  tree.insert(15);
+  tree.insert(10);
+  tree.insert(35);
+  t.true(tree.search(4) === null && tree.search(19) === null);
+});
+
+test('counts # of nodes and returns value', t => {
   let tree = new BTree();
   tree.insert(25);
   tree.insert(15);
@@ -83,6 +98,12 @@ test('counts # of nodes', t => {
   tree.insert(123);
   const count = tree.countAll();
   t.true(count === 6);
+});
+
+test('counts # of nodes on empty tree and returns 0', t => {
+  let tree = new BTree();
+  const count = tree.countAll();
+  t.true(count === 0);
 });
 
 // test.todo('searches for value');

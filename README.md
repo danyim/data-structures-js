@@ -1,4 +1,4 @@
-# CS 2XX: Data Structures
+# Data Structures in Javascript
 
 [![Build Status](https://travis-ci.org/danyim/data-structures-js.svg?branch=master)](https://travis-ci.org/danyim/data-structures-js)
 

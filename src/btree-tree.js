@@ -113,10 +113,8 @@ class BTree {
       if (node === this.root) {
         str += prefix + '+- <null>\r\n';
       }
-
       return str;
     }
-
     str += prefix + '+- ' + node.value + '\r\n';
     return str + this.toString(node.left, prefix + '|  ') + this.toString(node.right, prefix + '|  ');
   }
