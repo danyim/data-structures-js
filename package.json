@@ -1,6 +1,6 @@
 {
   "name": "data-structures-js",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Data structures in Javascript",
   "main": "app.js",
   "engines": {
@@ -18,7 +18,7 @@
     "algorithms",
     "cs-topics"
   ],
-  "author": "Daniel Yim",
+  "author": "Daniel Yim <danelyim@gmail.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/danyim/data-structures-js/issues"
