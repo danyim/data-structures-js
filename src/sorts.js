@@ -124,6 +124,3 @@ export function quick(input) {
 
 //   return sorted;
 // }
-
-console.log(quick([1, 4, 3, 4, 5]))
-
