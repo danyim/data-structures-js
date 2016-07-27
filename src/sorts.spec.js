@@ -13,7 +13,7 @@ let set1;
 let verifyIsSortedAsc = a => {
   let sorted = true;
   a.reduce((prev, curr) => {
-    if(prev !== null && curr < prev) {
+    if (prev !== null && curr < prev) {
       sorted = false;
     }
     return curr;
@@ -40,6 +40,16 @@ test.before(() => {
 });
 // test.after('cleanup', t => { ... });
 // test.beforeEach(t => { ... });
+
+test('verifies sorted array is sorted', t => {
+  let test = [1, 42, 59, 66, 92];
+  t.true(verifyIsSortedAsc(test));
+});
+
+test('verifies unsorted array is unsorted', t => {
+  let test = [5, 4, 3, 2, 1];
+  t.false(verifyIsSortedAsc(test));
+});
 
 test('sorts random set using bubble sort', t => {
   const result = bubble(set1);

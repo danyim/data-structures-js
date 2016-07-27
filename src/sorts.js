@@ -34,7 +34,8 @@ export function bubble(input) {
  */
 export function insertion(input) {
   let sorted = Array.from(input);
-  let j, value;
+  let j;
+  let value;
   for (var i = 1; i < sorted.length; i++) {
     value = sorted[i];
     j = i;
@@ -59,7 +60,7 @@ export function quick(input) {
     let i = left;
     let j = right;
     let tmp;
-    let pivot = arr[parseInt((left + right) / 2)]
+    let pivot = arr[Math.floor((left + right) / 2)];
 
     while (i <= j) {
       while (arr[i] < pivot) {
@@ -81,11 +82,12 @@ export function quick(input) {
       qSort(arr, left, j);
     }
 
-    if(i < right) {
+    if (i < right) {
       qSort(arr, i, right);
     }
   }
 
+  // Start the first iteration of the queue with the first and last elements
   qSort(sorted, 0, sorted.length - 1);
 
   return sorted;
