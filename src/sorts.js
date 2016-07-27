@@ -56,38 +56,64 @@ export function insertion(input) {
 export function quick(input) {
   let sorted = Array.from(input);
 
+  /*
+   * recursive quick sort function
+   *
+   * The basic mechanics of this function is the following:
+   *  1) Choose a pivot point (usually dead center of the array) and a low
+   *     (left partition) and high (right partition) bound
+   *  2) Search for values on the left and right partitions that need to swap
+   *  3) Swap the values and recursively run the algorithm on the left and right
+   *     partition
+   *
+   *  Doing this will sort the array on average in O(nlogn) time.
+   *
+   * @param  {[Number]} array of values to sort
+   * @param  {Number} starting index of the left partition
+   * @param  {Number} starting index of the right partition
+   * @return {[Number]} sorted array
+   */
   function qSort(arr, left, right) {
-    let i = left;
-    let j = right;
-    let tmp;
+    let l = left;
+    let r = right;
+    let tmp; // for swapping
     let pivot = arr[Math.floor((left + right) / 2)];
 
-    while (i <= j) {
-      while (arr[i] < pivot) {
-        i++;
+    // keep running the algo while we haven't crossed wires with the
+    // left/right partitions
+    while (l <= r) {
+      // search for the index of a value in the left partition that is not
+      // lesser than the pivot
+      while (arr[l] < pivot) {
+        l++;
       }
-      while (arr[j] > pivot) {
-        j--;
+      // likewise with the right partition
+      while (arr[r] > pivot) {
+        r--;
       }
-      if (i <= j) {
-        tmp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = tmp;
-        i++;
-        j--;
+
+      // swap if the left and right values that were found didn't cross
+      if (l <= r) {
+        tmp = arr[l];
+        arr[l] = arr[r];
+        arr[r] = tmp;
+        l++;
+        r--;
       }
     }
 
-    if (left < j) {
-      qSort(arr, left, j);
+    // if the right partition has a misplaced value (only way to be left == r),
+    // then perform the same sort using left and the r value as bounds
+    if (left < r) {
+      qSort(arr, left, r);
     }
 
-    if (i < right) {
-      qSort(arr, i, right);
+    if (l < right) {
+      qSort(arr, l, right);
     }
   }
 
-  // Start the first iteration of the queue with the first and last elements
+  // start the first iteration of the quicksort with the first and last elements
   qSort(sorted, 0, sorted.length - 1);
 
   return sorted;
@@ -99,14 +125,5 @@ export function quick(input) {
 //   return sorted;
 // }
 
-// let generateRandomSet = (count = 10, min = 1, max = 10) => {
-//   let r = [];
-//   for (var a = 0; a < count; a++) {
-//     r.push(Math.floor((Math.random() * max) + min));
-//   }
-//   return r;
-// };
-
-// let randset = generateRandomSet();
-// const result = quick(randset);
+console.log(quick([1, 4, 3, 4, 5]))
 

@@ -41,6 +41,10 @@ test.before(() => {
 // test.after('cleanup', t => { ... });
 // test.beforeEach(t => { ... });
 
+test('generate a randomized array of 100 numbers', t => {
+  t.true(generateRandomSet(100).length === 100);
+});
+
 test('verifies sorted array is sorted', t => {
   let test = [1, 42, 59, 66, 92];
   t.true(verifyIsSortedAsc(test));
