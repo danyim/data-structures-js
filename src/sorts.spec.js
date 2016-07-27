@@ -1,14 +1,14 @@
 'use strict';
 
 import test from 'ava';
-import {bubble, insertion, quick/* , merge */} from './sorts';
+import {bubble, insertion, quick, merge} from './sorts';
 
 let set1;
 
 /**
  * verifies that an array is sorted ascending
- * @param  {[Number]}
- * @return {[Boolean]}
+ * @param  {Number[]}
+ * @return {Boolean[]}
  */
 let verifyIsSortedAsc = a => {
   let sorted = true;
@@ -22,10 +22,10 @@ let verifyIsSortedAsc = a => {
 };
 
 /**
- * @param  {Number} number of data in the set
- * @param  {Number} minimum value
- * @param  {Number} max value
- * @return {[Number]}
+ * @param  {Number} - number of data in the set
+ * @param  {Number} - minimum value
+ * @param  {Number} - max value
+ * @return {Number[]}
  */
 let generateRandomSet = (count = 25, min = 1, max = 100) => {
   let r = [];
@@ -70,7 +70,7 @@ test('sorts random set using quick sort', t => {
   t.true(verifyIsSortedAsc(result));
 });
 
-// test('sorts random set using merge sort', t => {
-//   const result = merge(set1);
-//   t.true(verifyIsSortedAsc(result));
-// });
+test('sorts random set using merge sort', t => {
+  const result = merge(set1);
+  t.true(verifyIsSortedAsc(result));
+});

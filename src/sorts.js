@@ -2,8 +2,8 @@
 
 /**
  * bubble sort implementation
- * @param  {[Number]}
- * @return {[Number]}
+ * @param  {Number[]}
+ * @return {Number[]}
  */
 export function bubble(input) {
   let sorted = Array.from(input);
@@ -29,8 +29,8 @@ export function bubble(input) {
 
 /**
  * insertion sort implementation
- * @param  {[Number]}
- * @return {[Number]}
+ * @param  {Number]}
+ * @return {Number]}
  */
 export function insertion(input) {
   let sorted = Array.from(input);
@@ -50,8 +50,8 @@ export function insertion(input) {
 
 /**
  * quicksort implementation
- * @param  {[Number]}
- * @return {[Number]}
+ * @param  {Number[]}
+ * @return {Number[]}
  */
 export function quick(input) {
   let sorted = Array.from(input);
@@ -68,10 +68,10 @@ export function quick(input) {
    *
    *  Doing this will sort the array on average in O(nlogn) time.
    *
-   * @param  {[Number]} array of values to sort
-   * @param  {Number} starting index of the left partition
-   * @param  {Number} starting index of the right partition
-   * @return {[Number]} sorted array
+   * @param  {Number[]} - array of values to sort
+   * @param  {Number} - starting index of the left partition
+   * @param  {Number} - starting index of the right partition
+   * @return {Number[]} - sorted array
    */
   function qSort(arr, left, right) {
     let l = left;
@@ -119,8 +119,53 @@ export function quick(input) {
   return sorted;
 }
 
-// export function merge(input) {
-//   let sorted = Array.from(input);
+/**
+ * @param  {Array}
+ * @return {Array}
+ */
+export function merge(input) {
+  let sorted = Array.from(input);
 
-//   return sorted;
-// }
+   /**
+   * Merges two arrays in order based on their natural
+   * relationship.
+   * @param  {Array} - left The first array to merge.
+   * @param  {Array} - right The second array to merge.
+   * @return {Array} - The merged array.
+   */
+  function mergePartitions(left, right) {
+    let result = [];
+    let il = 0;
+    let ir = 0;
+
+    while (il < left.length && ir < right.length) {
+      if (left[il] < right[ir]) {
+        result.push(left[il++]);
+      } else {
+        result.push(right[ir++]);
+      }
+    }
+
+    return result.concat(left.slice(il)).concat(right.slice(ir));
+  }
+
+  /**
+   * Sorts an array in ascending natural order using
+   * merge sort.
+   * @param  {Array} items The array to sort.
+   * @return {Array} The sorted array.
+   */
+  function mergeSort(items) {
+    if (items.length < 2) {
+      return items;
+    }
+
+    let middle = Math.floor(items.length / 2);
+    let left = items.slice(0, middle);
+    let right = items.slice(middle);
+
+    return mergePartitions(mergeSort(left), mergeSort(right));
+  }
+
+  return mergeSort(sorted);
+}
