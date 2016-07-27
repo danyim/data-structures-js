@@ -9,3 +9,5 @@ This repo contains a study of canonical CS topics such as data structures and so
 - **Testing:** [Ava](https://github.com/avajs/ava) and [Istanbul](https://github.com/istanbuljs/nyc)
 - **ES6:** [Babel](https://babeljs.io/)
 - **Code Style/Linting:** [xo](https://github.com/sindresorhus/xo)
+- **Debugging:** [devtool](https://github.com/Jam3/devtool)
+    - Use for debugging via `babel src -d lib && devtool lib/*`

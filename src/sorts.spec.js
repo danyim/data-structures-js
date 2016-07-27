@@ -1,7 +1,7 @@
 'use strict';
 
 import test from 'ava';
-import {bubble/* , insertion, merge, quick */} from './sorts';
+import {bubble, insertion, quick/* , merge */} from './sorts';
 
 let set1;
 
@@ -11,9 +11,14 @@ let set1;
  * @return {[Boolean]}
  */
 let verifyIsSortedAsc = a => {
-  return a.reduce((prev, curr) => {
-    return prev <= curr;
-  }, false);
+  let sorted = true;
+  a.reduce((prev, curr) => {
+    if(prev !== null && curr < prev) {
+      sorted = false;
+    }
+    return curr;
+  }, null);
+  return sorted;
 };
 
 /**
@@ -22,7 +27,7 @@ let verifyIsSortedAsc = a => {
  * @param  {Number} max value
  * @return {[Number]}
  */
-let generateRandomSet = (count = 25, min = 1, max = 500) => {
+let generateRandomSet = (count = 25, min = 1, max = 100) => {
   let r = [];
   for (var a = 0; a < count; a++) {
     r.push(Math.floor((Math.random() * max) + min));
@@ -41,17 +46,17 @@ test('sorts random set using bubble sort', t => {
   t.true(verifyIsSortedAsc(result));
 });
 
-// test('sorts random set using insertion sort', t => {
-//   const result = insertion(set1);
-//   t.true(verifyIsSortedAsc([result]));
-// });
+test('sorts random set using insertion sort', t => {
+  const result = insertion(set1);
+  t.true(verifyIsSortedAsc(result));
+});
+
+test('sorts random set using quick sort', t => {
+  const result = quick(set1);
+  t.true(verifyIsSortedAsc(result));
+});
 
 // test('sorts random set using merge sort', t => {
 //   const result = merge(set1);
-//   t.true(verifyIsSortedAsc([result]));
-// });
-
-// test('sorts random set using quick sort', t => {
-//   const result = quick(set1);
-//   t.true(verifyIsSortedAsc([result]));
+//   t.true(verifyIsSortedAsc(result));
 // });

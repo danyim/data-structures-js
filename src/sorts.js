@@ -1,5 +1,10 @@
 'use strict';
 
+/**
+ * bubble sort implementation
+ * @param  {[Number]}
+ * @return {[Number]}
+ */
 export function bubble(input) {
   let sorted = Array.from(input);
   let swapped = true;
@@ -22,11 +27,69 @@ export function bubble(input) {
   return sorted;
 }
 
-// export function insertion(input) {
-//   let sorted = Array.from(input);
+/**
+ * insertion sort implementation
+ * @param  {[Number]}
+ * @return {[Number]}
+ */
+export function insertion(input) {
+  let sorted = Array.from(input);
+  let j, value;
+  for (var i = 1; i < sorted.length; i++) {
+    value = sorted[i];
+    j = i;
+    while (j > 0 && sorted[j - 1] > value) {
+      sorted[j] = sorted[j - 1];
+      j--;
+    }
+    sorted[j] = value;
+  }
+  return sorted;
+}
 
-//   return sorted;
-// }
+/**
+ * quicksort implementation
+ * @param  {[Number]}
+ * @return {[Number]}
+ */
+export function quick(input) {
+  let sorted = Array.from(input);
+
+  function qSort(arr, left, right) {
+    let i = left;
+    let j = right;
+    let tmp;
+    let pivot = arr[parseInt((left + right) / 2)]
+
+    while (i <= j) {
+      while (arr[i] < pivot) {
+        i++;
+      }
+      while (arr[j] > pivot) {
+        j--;
+      }
+      if (i <= j) {
+        tmp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = tmp;
+        i++;
+        j--;
+      }
+    }
+
+    if (left < j) {
+      qSort(arr, left, j);
+    }
+
+    if(i < right) {
+      qSort(arr, i, right);
+    }
+  }
+
+  qSort(sorted, 0, sorted.length - 1);
+
+  return sorted;
+}
 
 // export function merge(input) {
 //   let sorted = Array.from(input);
@@ -34,8 +97,14 @@ export function bubble(input) {
 //   return sorted;
 // }
 
-// export function quick(input) {
-//   let sorted = Array.from(input);
+// let generateRandomSet = (count = 10, min = 1, max = 10) => {
+//   let r = [];
+//   for (var a = 0; a < count; a++) {
+//     r.push(Math.floor((Math.random() * max) + min));
+//   }
+//   return r;
+// };
 
-//   return sorted;
-// }
+// let randset = generateRandomSet();
+// const result = quick(randset);
+
