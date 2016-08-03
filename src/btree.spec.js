@@ -1,7 +1,5 @@
-'use strict';
-
 import test from 'ava';
-import BTree from './btree-tree';
+import BinaryTree from './btree-tree';
 import TreeNode from './btree-node';
 
 // test.before(t => { ... });
@@ -9,43 +7,43 @@ import TreeNode from './btree-node';
 // test.beforeEach(t => { ... });
 
 test('creates binary tree', t => {
-  let myRoot = 'val';
-  let tree = new BTree(myRoot);
+  const myRoot = 'val';
+  const tree = new BinaryTree(myRoot);
   t.true(tree.root === myRoot);
 });
 
 test('creates binary tree node', t => {
-  let someValue = 'val';
-  let node = new TreeNode(someValue);
+  const someValue = 'val';
+  const node = new TreeNode(someValue);
   t.true(node.left !== undefined && node.right !== undefined && node.value === someValue);
 });
 
 test('prints empty string', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   t.true(tree.toString().includes('<null>'));
 });
 
 test('prints tree nodes', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   t.true(tree.toString().includes('25'));
 });
 
 test('inserts first value as root', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   t.true(tree.root !== null && tree.root.value === 25);
 });
 
 test('inserts two values', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   t.true(tree.root.left !== null && tree.root.left.value === 15);
 });
 
 test('destroys the entire tree', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   tree.insert(10);
@@ -57,7 +55,7 @@ test('destroys the entire tree', t => {
 });
 
 test('destroys a subtree', t => {
-  const tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   tree.insert(10);
@@ -70,7 +68,7 @@ test('destroys a subtree', t => {
 });
 
 test('searches for and finds a value', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   tree.insert(10);
@@ -80,7 +78,7 @@ test('searches for and finds a value', t => {
 });
 
 test('searches for and doesn\'t find value', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   tree.insert(10);
@@ -89,7 +87,7 @@ test('searches for and doesn\'t find value', t => {
 });
 
 test('counts # of nodes and returns value', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   tree.insert(25);
   tree.insert(15);
   tree.insert(10);
@@ -101,7 +99,7 @@ test('counts # of nodes and returns value', t => {
 });
 
 test('counts # of nodes on empty tree and returns 0', t => {
-  let tree = new BTree();
+  const tree = new BinaryTree();
   const count = tree.countAll();
   t.true(count === 0);
 });

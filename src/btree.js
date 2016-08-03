@@ -1,10 +1,8 @@
-'use strict';
-
 import BTree from './btree-tree';
 import TreeNode from './btree-node';
 
-let root = new TreeNode(24);
-let tree = new BTree(root);
+const root = new TreeNode(24);
+const tree = new BTree(root);
 tree.insert(13);
 tree.insert(29);
 tree.insert(11);

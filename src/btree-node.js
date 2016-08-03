@@ -1,14 +1,10 @@
-'use strict';
-
 /**
  * Binary Tree Node
  */
-class TreeNode {
+export default class TreeNode {
   constructor(value = null) {
     this.left = null;
     this.right = null;
     this.value = value;
   }
 }
-
-export default TreeNode;

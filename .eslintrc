@@ -1,0 +1,16 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "es6": true,
+    "browser": true,
+    "jquery": true
+  },
+  "rules": {
+    "no-console": 0,
+    "import": 0,
+    "no-unused-vars": 1,
+    "arrow-body-style": [2, "as-needed"],
+    "no-param-reassign": 0
+  },
+  "plugins": ["html", "markdown"]
+}

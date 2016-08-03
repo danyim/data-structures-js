@@ -1,12 +1,10 @@
-'use strict';
-
 /**
  * bubble sort implementation
  * @param  {Number[]}
  * @return {Number[]}
  */
-export function bubble(input) {
-  let sorted = Array.from(input);
+export const bubble = input => {
+  const sorted = Array.from(input);
   let swapped = true;
   let k = 0;
   let tmp;
@@ -14,7 +12,7 @@ export function bubble(input) {
   while (swapped === true) {
     swapped = false;
     k++;
-    for (var i = 0; i < sorted.length - k; i++) {
+    for (let i = 0; i < sorted.length - k; i++) {
       if (sorted[i] > sorted[i + 1]) {
         tmp = sorted[i];
         sorted[i] = sorted[i + 1];
@@ -25,18 +23,18 @@ export function bubble(input) {
   }
 
   return sorted;
-}
+};
 
 /**
  * insertion sort implementation
  * @param  {Number]}
  * @return {Number]}
  */
-export function insertion(input) {
-  let sorted = Array.from(input);
+export const insertion = input => {
+  const sorted = Array.from(input);
   let j;
   let value;
-  for (var i = 1; i < sorted.length; i++) {
+  for (let i = 1; i < sorted.length; i++) {
     value = sorted[i];
     j = i;
     while (j > 0 && sorted[j - 1] > value) {
@@ -46,15 +44,15 @@ export function insertion(input) {
     sorted[j] = value;
   }
   return sorted;
-}
+};
 
 /**
  * quicksort implementation
  * @param  {Number[]}
  * @return {Number[]}
  */
-export function quick(input) {
-  let sorted = Array.from(input);
+export const quick = input => {
+  const sorted = Array.from(input);
 
   /*
    * recursive quick sort function
@@ -73,11 +71,11 @@ export function quick(input) {
    * @param  {Number} - starting index of the right partition
    * @return {Number[]} - sorted array
    */
-  function qSort(arr, left, right) {
+  const qSort = (arr, left, right) => {
     let l = left;
     let r = right;
     let tmp; // for swapping
-    let pivot = arr[Math.floor((left + right) / 2)];
+    const pivot = arr[Math.floor((left + right) / 2)];
 
     // keep running the algo while we haven't crossed wires with the
     // left/right partitions
@@ -111,20 +109,20 @@ export function quick(input) {
     if (l < right) {
       qSort(arr, l, right);
     }
-  }
+  };
 
   // start the first iteration of the quicksort with the first and last elements
   qSort(sorted, 0, sorted.length - 1);
 
   return sorted;
-}
+};
 
 /**
  * @param  {Array}
  * @return {Array}
  */
-export function merge(input) {
-  let sorted = Array.from(input);
+export const merge = input => {
+  const sorted = Array.from(input);
 
    /**
    * Merges two arrays in order based on their natural
@@ -134,7 +132,7 @@ export function merge(input) {
    * @return {Array} - The merged array.
    */
   function mergePartitions(left, right) {
-    let result = [];
+    const result = [];
     let il = 0;
     let ir = 0;
 
@@ -160,12 +158,12 @@ export function merge(input) {
       return items;
     }
 
-    let middle = Math.floor(items.length / 2);
-    let left = items.slice(0, middle);
-    let right = items.slice(middle);
+    const middle = Math.floor(items.length / 2);
+    const left = items.slice(0, middle);
+    const right = items.slice(middle);
 
     return mergePartitions(mergeSort(left), mergeSort(right));
   }
 
   return mergeSort(sorted);
-}
+};

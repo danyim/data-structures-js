@@ -1,11 +1,9 @@
-'use strict';
-
 import TreeNode from './btree-node';
 
 /**
  * Binary Tree
  */
-class BTree {
+export default class BinaryTree {
   constructor(root = null) {
     this.root = root;
   }
@@ -16,7 +14,7 @@ class BTree {
    * @return {Integer} count of nodes in tree
    */
   count(node) {
-    if (node === null) {
+    if (!node) {
       return 0;
     }
     return 1 + this.count(node.left) + this.count(node.right);
@@ -27,7 +25,7 @@ class BTree {
    * @return {Integer} count of nodes in tree
    */
   countAll() {
-    if (this.root === null) {
+    if (!this.root) {
       return 0;
     }
     return this.count(this.root);
@@ -38,7 +36,7 @@ class BTree {
    * @param  {value}
    */
   insert(value) {
-    if (this.root === null) {
+    if (!this.root) {
       this.root = new TreeNode(value);
     } else {
       this.insertRecursive(value, this.root);
@@ -111,12 +109,15 @@ class BTree {
     let str = '';
     if (node === null) {
       if (node === this.root) {
-        str += prefix + '+- <null>\r\n';
+        str += `${prefix}+- <null>\r\n`;
       }
       return str;
     }
-    str += prefix + '+- ' + node.value + '\r\n';
-    return str + this.toString(node.left, prefix + '|  ') + this.toString(node.right, prefix + '|  ');
+    str += `${prefix}+- ${node.value}\r\n`;
+    const left = this.toString(node.left, `${prefix}|  `);
+    const right = this.toString(node.right, `${prefix}|  `);
+
+    return `${str}${left}${right}`;
   }
 
   /*
@@ -158,5 +159,3 @@ class BTree {
 
   // }
 }
-
-export default BTree;

@@ -1,7 +1,5 @@
-'use strict';
-
 import test from 'ava';
-import {bubble, insertion, quick, merge} from './sorts';
+import { bubble, insertion, quick, merge } from './sorts';
 
 let set1;
 
@@ -10,7 +8,7 @@ let set1;
  * @param  {Number[]}
  * @return {Boolean[]}
  */
-let verifyIsSortedAsc = a => {
+const verifyIsSortedAsc = a => {
   let sorted = true;
   a.reduce((prev, curr) => {
     if (prev !== null && curr < prev) {
@@ -27,9 +25,9 @@ let verifyIsSortedAsc = a => {
  * @param  {Number} - max value
  * @return {Number[]}
  */
-let generateRandomSet = (count = 25, min = 1, max = 100) => {
-  let r = [];
-  for (var a = 0; a < count; a++) {
+const generateRandomSet = (count = 25, min = 1, max = 100) => {
+  const r = [];
+  for (let a = 0; a < count; a++) {
     r.push(Math.floor((Math.random() * max) + min));
   }
   return r;
@@ -46,13 +44,13 @@ test('generate a randomized array of 100 numbers', t => {
 });
 
 test('verifies sorted array is sorted', t => {
-  let test = [1, 42, 59, 66, 92];
-  t.true(verifyIsSortedAsc(test));
+  const data = [1, 42, 59, 66, 92];
+  t.true(verifyIsSortedAsc(data));
 });
 
 test('verifies unsorted array is unsorted', t => {
-  let test = [5, 4, 3, 2, 1];
-  t.false(verifyIsSortedAsc(test));
+  const data = [5, 4, 3, 2, 1];
+  t.false(verifyIsSortedAsc(data));
 });
 
 test('sorts random set using bubble sort', t => {
