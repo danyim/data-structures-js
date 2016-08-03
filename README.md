@@ -8,7 +8,7 @@ The goals of this project are to document every major data structure/algorithm i
 ## Tooling
 - **Testing:** [Ava](https://github.com/avajs/ava) and [Istanbul](https://github.com/istanbuljs/nyc)
 - **ES6:** [Babel](https://babeljs.io/)
-- **Code Style/Linting:** [ES6Lint] [xo](https://github.com/sindresorhus/xo)
+- **Code Style/Linting:** [ESLint](http://eslint.org/)
 - **Debugging:** [devtool](https://github.com/Jam3/devtool)
     - Use for step through debugging via `babel src -d lib && devtool lib/*`
 
