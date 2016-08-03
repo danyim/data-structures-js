@@ -12,5 +12,5 @@
     "arrow-body-style": [2, "as-needed"],
     "no-param-reassign": 0
   },
-  "plugins": ["html", "markdown"]
+  "plugins": []
 }
