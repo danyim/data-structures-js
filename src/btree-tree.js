@@ -6,6 +6,7 @@ import TreeNode from './btree-node';
 export default class BinaryTree {
   constructor(root = null) {
     this.root = root;
+    this.DEBUG = false;
   }
 
   /**
@@ -118,5 +119,62 @@ export default class BinaryTree {
     const right = this.toString(node.right, `${prefix}|  `);
 
     return `${str}${left}${right}`;
+  }
+
+  /**
+   * Iterative implementation of a depth-first search algorithm. This generator
+   * function will walk through the tree via DFS until the value is found
+   * @param {TreeNode} node The node to begin the search
+   * @param {Number}   v    Value to find or null if you want to just iterate
+   */
+  static *DFS(node = null, v = null) {
+    if(!node) return;
+    let nodesToVisit = [node];
+    let currentNode = null;
+    while(nodesToVisit.length > 0) {
+      currentNode = nodesToVisit.shift(); // Removes and returns the first node
+
+      // Prepend the children if they're not null
+      nodesToVisit = [
+        ...(currentNode.left !== null ? [currentNode.left] : []),
+        ...(currentNode.right !== null ? [currentNode.right] : []),
+        ...nodesToVisit
+      ];
+
+      yield currentNode;
+
+      // Check if we found our value
+      if(v && currentNode.value === v) {
+        break;
+      }
+    }
+  }
+
+  /**
+   * Iterative implementation of a breadth-first search algorithm. This generator
+   * function will walk through the tree via BFS until the value is found
+   * @param {TreeNode} node The node to begin the search
+   * @param {Number}   v    Value to find or null if you want to just iterate
+   */
+  static *BFS(node = null, v = null) {
+    if(!node) return;
+    let nodesToVisit = [node];
+    let currentNode = null;
+    while(nodesToVisit.length > 0) {
+      currentNode = nodesToVisit.shift(); // Removes and returns the first node
+
+      // Append the children if they're not null
+      nodesToVisit = [
+        ...nodesToVisit,
+        ...(currentNode.left !== null ? [currentNode.left] : []),
+        ...(currentNode.right !== null ? [currentNode.right] : [])
+      ];
+      yield currentNode;
+
+      // Check if we found our value
+      if(v && currentNode.value === v) {
+        break;
+      }
+    }
   }
 }

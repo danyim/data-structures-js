@@ -104,4 +104,43 @@ test('counts # of nodes on empty tree and returns 0', t => {
   t.true(count === 0);
 });
 
-// test.todo('searches for value');
+test('performs a depth-first traversal correctly', t => {
+  const tree = new BinaryTree();
+  tree.insert(15);
+  tree.insert(10);
+  tree.insert(3);
+  tree.insert(11);
+  tree.insert(20);
+  tree.insert(34);
+
+  const results = [];
+  for(let v of BinaryTree.DFS(tree.root)) {
+    results.push(v.value);
+  }
+
+  const resultsString = results.join(',');
+  t.true(resultsString === '15,10,3,11,20,34');
+});
+
+test('performs a breadth-first traversal correctly', t => {
+  const tree = new BinaryTree();
+  tree.insert(15);
+  tree.insert(10);
+  tree.insert(3);
+  tree.insert(11);
+  tree.insert(20);
+  tree.insert(34);
+
+  const results = [];
+  for(let v of BinaryTree.BFS(tree.root)) {
+    results.push(v.value);
+  }
+
+  const resultsString = results.join(',');
+  t.true(resultsString === '15,10,20,3,11,34');
+});
+
+test.todo('searches for value using depth-first search');
+test.todo('searches for value using breadth-first search');
+test.todo('searches for value');
+test.todo('rebalances an unbalanced tree');
