@@ -1,7 +1,7 @@
 # Data Structures in Javascript
-This is an effort to implement every major data structure/algorithm in a typical CS curriculum using ES6 Javascript modules with complete code coverage.
-
 [![Build Status](https://travis-ci.org/danyim/data-structures-js.svg?branch=master)](https://travis-ci.org/danyim/data-structures-js) [![Dependency Status](https://www.versioneye.com/user/projects/57984ee874848d002b4b9eab/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57984ee874848d002b4b9eab)
+
+This is an effort to implement every major data structure/algorithm in a typical CS curriculum using ES6 Javascript modules with complete code coverage.
 
 ### Installation
 1. Run `npm install`
