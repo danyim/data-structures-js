@@ -119,43 +119,4 @@ export default class BinaryTree {
 
     return `${str}${left}${right}`;
   }
-
-  /*
-    // Old implementation without fancy lines
-    toString() {
-      if (!this.root) {
-        return;
-      }
-      let returnString = '';
-      let nodesQueue = [];
-      let nodesInCurrentLevel = 1;
-      let nodesInNextLevel = 0;
-
-      nodesQueue.push(this.root);
-      while (nodesQueue.length !== 0) {
-        let currNode = nodesQueue[0];
-        nodesQueue = nodesQueue.slice(1, nodesQueue.length);
-        nodesInCurrentLevel--;
-        if (currNode !== null && currNode !== 'undefined') {
-          returnString += currNode.value + ' ';
-          nodesQueue.push(currNode.left);
-          nodesQueue.push(currNode.right);
-          nodesInNextLevel += 2;
-        }
-        if (nodesInCurrentLevel === 0) {
-          returnString += '\r\n';
-          nodesInCurrentLevel = nodesInNextLevel;
-          nodesInNextLevel = 0;
-        }
-      }
-      return returnString;
-    }
-   */
-
-  /**
-   * @param  {TreeNode}
-   */
-  // remove(node) {
-
-  // }
 }

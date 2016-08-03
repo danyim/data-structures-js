@@ -7,7 +7,7 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "build": "babel src/*.js --watch --out-file lib/*",
+    "clean": "rm -rf .nyc_output coverage",
     "test": "eslint src/*.js && nyc ava -v"
   },
   "repository": {
