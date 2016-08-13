@@ -5,7 +5,8 @@ This is an effort to implement every major data structure/algorithm in a typical
 
 ### Installation
 1. Run `npm install`
-2. Run `npm test` to see test results
+2. Run `npm test` to see test results with coverage report
+3. When developing, keep `ava -vw` running to watch for changes
 
 ### Tooling
 - **Testing:** [Ava](https://github.com/avajs/ava) and [Istanbul](https://github.com/istanbuljs/nyc)
