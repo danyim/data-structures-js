@@ -1,12 +1,12 @@
 import test from 'ava';
-import { LinkedList } from './linked-list';
+import { SinglyLinkedList } from './linked-list';
 
 // test.before(() => {});
 // test.after('cleanup', t => { ... });
 // test.beforeEach(t => { ... });
 
 test('should insert items to linked list', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   list.insertToEnd(5);
   list.insertToEnd(10);
   list.insertToEnd(23);
@@ -21,20 +21,25 @@ test('should insert items to linked list', t => {
 });
 
 test('should accurately count zero items in the list', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   t.true(list.count() === 0);
 });
 
 test('should accurately count items in the list', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   list.insertToEnd(5);
   list.insertToEnd(10);
   list.insertToEnd(23);
   t.true(list.count() === 3);
 });
 
+test('should return false when getting the kth node of an empty linked list', t => {
+  const list = new SinglyLinkedList();
+  t.true(list.getKthNode(3) === null);
+});
+
 test('should get the kth node of a linked list', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   list.insertToEnd(9);
   list.insertToEnd(40);
   list.insertToEnd(65);
@@ -44,7 +49,7 @@ test('should get the kth node of a linked list', t => {
 });
 
 test('should get the kth node of the end of a linked list', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   list.insertToEnd(9);
   list.insertToEnd(40);
   list.insertToEnd(0);
@@ -59,12 +64,12 @@ test('should get the kth node of the end of a linked list', t => {
 });
 
 test('should return true if list is empty', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   t.true(list.isEmpty());
 });
 
 test('should return false if list is not empty', t => {
-  const list = new LinkedList();
+  const list = new SinglyLinkedList();
   list.insertToEnd(84);
   list.insertToEnd(55);
   list.insertToEnd(3);

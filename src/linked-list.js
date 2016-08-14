@@ -6,7 +6,10 @@ export class LinkedListNode {
   }
 }
 
-export class LinkedList {
+/**
+ * Singly-linked list
+ */
+export class SinglyLinkedList {
   constructor(first = null) {
     this.first = first;
   }
