@@ -1,5 +1,4 @@
-import BinaryTree from './btree-tree';
-import TreeNode from './btree-node';
+import { BinaryTree, TreeNode } from './binary-tree';
 
 const root = new TreeNode(24);
 const tree = new BinaryTree(root);

@@ -12,7 +12,7 @@ export class TreeNode {
 /**
  * Binary Tree
  */
-export default class BinaryTree {
+export class BinaryTree {
   constructor(root = null) {
     this.root = root;
     this.DEBUG = false;
