@@ -35,7 +35,8 @@
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-es2015-native-modules": "^6.9.2",
     "eslint": "^3.2.2",
-    "nyc": "*"
+    "nyc": "*",
+    "pre-commit": "^1.1.3"
   },
   "ava": {
     "files": [
@@ -45,5 +46,8 @@
       "babel-register"
     ],
     "babel": "inherit"
-  }
+  },
+  "pre-commit": [
+    "test"
+  ]
 }
