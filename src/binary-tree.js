@@ -1,4 +1,13 @@
-import TreeNode from './btree-node';
+/**
+ * Binary Tree Node
+ */
+export class TreeNode {
+  constructor(value = null) {
+    this.left = null;
+    this.right = null;
+    this.value = value;
+  }
+}
 
 /**
  * Binary Tree

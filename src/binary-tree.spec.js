@@ -1,10 +1,9 @@
 import test from 'ava';
-import BinaryTree from './btree-tree';
-import TreeNode from './btree-node';
+import { BinaryTree, TreeNode } from './binary-tree';
 
 // test.before(t => { ... });
 // test.after('cleanup', t => { ... });
-// test.beforeEach(t => { ... });
+// test.beforeEach(t => { ... });B
 
 test('creates binary tree', t => {
   const myRoot = 'val';
