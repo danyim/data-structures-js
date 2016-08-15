@@ -4,25 +4,25 @@ import LinkedListNode from './linked-list-node';
  * Singly-linked list
  */
 export default class SinglyLinkedList {
-  constructor(first = null) {
-    this.first = first;
+  constructor(head = null) {
+    this.head = head;
   }
 
   /**
    * Inserts a new value to the end of the linked list
    * @param  {Object} value Object to insert
    */
-  insertToEnd(value) {
+  insert(value) {
     const newNode = new LinkedListNode(value);
-    let current = this.first;
+    let current = this.head;
 
     // Are we starting with an empty list?
     if(current === null) {
-      this.first = newNode;
+      this.head = newNode;
     }
     else {
       // Traverse until we find the end
-      while(current.next != null) {
+      while(current.next !== null) {
         current = current.next;
       }
       current.next = newNode;
@@ -30,18 +30,37 @@ export default class SinglyLinkedList {
   }
 
   /**
+   * Removes the first match from the list
+   * @param  {Object} value Value to remove
+   * @return {LinkedListNode}   Removed node
+   */
+  remove(value) {
+    let current = this.head;
+    if(current === null) {
+      return null; // List empty
+    }
+
+    while(current.next !== null && current.next.value !== value) {
+      current = current.next;
+    }
+    const removedNode = current.next;
+    current.next = current.next.next;
+    return removedNode;
+  }
+
+  /**
    * Returns the kth node in the list
    * @param  {Integer} k kth element
-   * @return {LinkedListNOde}   Node at the kth element
+   * @return {LinkedListNode}   Node at the kth element
    */
   getKthNode(k) {
-    let current = this.first;
+    let current = this.head;
     if(current === null) {
       return null;
     }
 
     let count = 1;
-    while(current.next != null && count < k) {
+    while(current.next !== null && count < k) {
       current = current.next;
       count++;
     }
@@ -54,8 +73,8 @@ export default class SinglyLinkedList {
    * @return {LinkedListNode}   kth Node from the end
    */
   getKthNodeFromEnd(k) {
-    let current = this.first;
-    let runner = this.first;
+    let current = this.head;
+    let runner = this.head;
 
     // Advnace the runner k - 1 away
     for(var i = 0; i < k - 1; i++) {
@@ -63,7 +82,7 @@ export default class SinglyLinkedList {
       runner = runner.next;
     }
     // Advance both pointers at the same pace
-    while(runner.next != null) {
+    while(runner.next !== null) {
       current = current.next;
       runner = runner.next;
     }
@@ -75,7 +94,7 @@ export default class SinglyLinkedList {
    * @return {Boolean} Returns true if list is empty
    */
   isEmpty() {
-    return this.first === null;
+    return this.head === null;
   }
 
   /**
@@ -83,13 +102,13 @@ export default class SinglyLinkedList {
    * @return {Integer} Number of nodes
    */
   count() {
-    let current = this.first;
+    let current = this.head;
     if(current === null) {
       return 0;
     }
 
     let count = 1;
-    while(current.next != null) {
+    while(current.next !== null) {
       current = current.next;
       count++;
     }
@@ -101,7 +120,7 @@ export default class SinglyLinkedList {
    * @param  {LinkedListNode} startNode Node to start the traversal
    * @return {Array}           Array containing all the traversed nodes' values
    */
-  toArray(startNode = this.first) {
+  toArray(startNode = this.head) {
     let returnArr = [];
     let current = startNode;
     while(current !== null) {

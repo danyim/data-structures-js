@@ -7,11 +7,11 @@ import SinglyLinkedList from './singly-linked-list';
 
 test('should insert items to singly linked list', t => {
   const list = new SinglyLinkedList();
-  list.insertToEnd(5);
-  list.insertToEnd(10);
-  list.insertToEnd(23);
-  list.insertToEnd(55);
-  list.insertToEnd(7);
+  list.insert(5);
+  list.insert(10);
+  list.insert(23);
+  list.insert(55);
+  list.insert(7);
   const result = list.toArray();
   t.true(result.findIndex(v => v === 5) !== -1);
   t.true(result.findIndex(v => v === 10) !== -1);
@@ -27,9 +27,9 @@ test('should accurately count zero items in the singly linked list', t => {
 
 test('should accurately count items in the singly linked list', t => {
   const list = new SinglyLinkedList();
-  list.insertToEnd(5);
-  list.insertToEnd(10);
-  list.insertToEnd(23);
+  list.insert(5);
+  list.insert(10);
+  list.insert(23);
   t.true(list.count() === 3);
 });
 
@@ -40,9 +40,9 @@ test('should return false when getting the kth node of an empty singly linked li
 
 test('should get the kth node of a singly linked list', t => {
   const list = new SinglyLinkedList();
-  list.insertToEnd(9);
-  list.insertToEnd(40);
-  list.insertToEnd(65);
+  list.insert(9);
+  list.insert(40);
+  list.insert(65);
   t.true(list.getKthNode(3).value === 65);
   t.true(list.getKthNode(2).value === 40);
   t.true(list.getKthNode(1).value === 9);
@@ -50,13 +50,13 @@ test('should get the kth node of a singly linked list', t => {
 
 test('should get the kth node of the end of a singly linked list', t => {
   const list = new SinglyLinkedList();
-  list.insertToEnd(9);
-  list.insertToEnd(40);
-  list.insertToEnd(0);
-  list.insertToEnd(84);
-  list.insertToEnd(55);
-  list.insertToEnd(3);
-  list.insertToEnd(23);
+  list.insert(9);
+  list.insert(40);
+  list.insert(0);
+  list.insert(84);
+  list.insert(55);
+  list.insert(3);
+  list.insert(23);
   t.true(list.getKthNodeFromEnd(3).value === 55);
   t.true(list.getKthNodeFromEnd(7).value === 9);
   t.true(list.getKthNodeFromEnd(5).value === 0);
@@ -70,11 +70,31 @@ test('should return true if singly linked list is empty', t => {
 
 test('should return false if singly linked list is not empty', t => {
   const list = new SinglyLinkedList();
-  list.insertToEnd(84);
-  list.insertToEnd(55);
-  list.insertToEnd(3);
-  list.insertToEnd(23);
+  list.insert(84);
+  list.insert(55);
+  list.insert(3);
+  list.insert(23);
   t.true(!list.isEmpty());
 });
+
+test('should return null if attempting to remove from an empty singly linked list', t => {
+  const list = new SinglyLinkedList();
+  t.true(list.remove(23) === null);
+});
+
+test('should remove a node from a populated singly linked list', t => {
+  const list = new SinglyLinkedList();
+  list.insert(84);
+  list.insert(55);
+  list.insert(3);
+  list.insert(23);
+  list.remove(3); // Remove
+  const result = list.toArray();
+  t.true(result.findIndex(v => v === 84) !== -1);
+  t.true(result.findIndex(v => v === 55) !== -1);
+  t.true(result.findIndex(v => v === 23) !== -1);
+});
+
+
 
 

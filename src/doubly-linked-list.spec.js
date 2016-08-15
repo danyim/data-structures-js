@@ -77,4 +77,22 @@ test('should return false if doubly linked list is not empty', t => {
   t.true(!list.isEmpty());
 });
 
+test('should return null if attempting to remove from an empty doubly linked list', t => {
+  const list = new DoublyLinkedList();
+  t.true(list.remove(23) === null);
+});
+
+test('should remove a node from a populated doubly linked list', t => {
+  const list = new DoublyLinkedList();
+  list.insert(84);
+  list.insert(55);
+  list.insert(3);
+  list.insert(23);
+  list.remove(3); // Remove
+  const result = list.toArray();
+  t.true(result.findIndex(v => v === 84) !== -1);
+  t.true(result.findIndex(v => v === 55) !== -1);
+  t.true(result.findIndex(v => v === 23) !== -1);
+});
+
 
