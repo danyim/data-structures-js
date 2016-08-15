@@ -13,6 +13,7 @@ This is an effort to implement every major data structure/algorithm in a typical
 - Merge sort
 - Quick sort
 - Hash tables
+- Heaps (max and min)
 
 ### Installation
 1. Run `npm install`

@@ -1,0 +1,102 @@
+/**
+ * Heap
+ * Turn this into a max heap or a min heap by sending in a comparator function
+ * to the constructor
+ */
+export default class Heap {
+  constructor(comp = this.defaultComparator) {
+    this.heap = [];
+    this.comp = comp;
+  }
+
+  /**
+   * Default comparator for creating a max heap
+   * @param  {Object} a
+   * @param  {Object} b
+   * @return {Boolean}
+   */
+  defaultComparator(a, b) {
+    return a > b;
+  }
+
+  /**
+   * Swap array values at indicies a and b
+   * @param  {Integer} a Index of swap value
+   * @param  {Integer} b Index of swap value
+   */
+  swap(a, b) {
+    const temp = this.heap[a];
+    this.heap[a] = this.heap[b];
+    this.heap[b] = temp;
+  }
+
+  /**
+   * Bubbles up a value in the heap
+   * @param  {Integer} i Index to "bubble up"
+   */
+  bubbleUp(i) {
+    if (i <= 0) {
+      return;
+    }
+    const parent = Math.floor((i - 1) / 2);
+    if (this.comp(this.heap[i], this.heap[parent])) {
+      this.swap(i, parent);
+      this.bubbleUp(parent);
+    }
+  }
+
+  /**
+   * Bubbles down a value in the heap
+   * @param  {Integer} i Index to "bubble down"
+   */
+  bubbleDown(i) {
+    const left = 2 * i + 1;
+    const right = left + 1;
+    let largest = i;
+    if (left < this.heap.length && this.comp(this.heap[left], this.heap[largest])) {
+      largest = left;
+    }
+    if (right < this.heap.length && this.comp(this.heap[right], this.heap[largest])) {
+      largest = right;
+    }
+    if (largest !== i) {
+      this.swap(largest, i);
+      this.bubbleDown(largest);
+    }
+  }
+
+  /**
+   * Insert a value into the heap
+   * @param  {Integer} value Value to insert
+   */
+  insert(value) {
+    this.heap.push(value);
+    this.bubbleUp(this.heap.length - 1);
+  }
+
+  /**
+   * Extract the value at the root and rebuild the heap
+   * @return {Object} Value of root
+   */
+  extract() {
+    if(this.heap.length === 0) {
+      return null;
+    }
+    const root = this.heap[0];
+    const last = this.heap.length - 1;
+    this.heap[0] = this.heap[last];
+    this.heap.length = last;
+    if(last > 0) {
+      this.bubbleDown(0);
+    }
+    return root;
+  }
+
+  /**
+   * Returns the size of the heap
+   * @return {Integer} Size of heap
+   */
+  size() {
+    return this.heap.length;
+  }
+}
