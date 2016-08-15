@@ -51,7 +51,7 @@ export default class Heap {
    */
   bubbleDown(i) {
     const left = 2 * i + 1;
-    const right = left + 1;
+    const right = 2 * i + 2;
     let largest = i;
     if (left < this.heap.length && this.comp(this.heap[left], this.heap[largest])) {
       largest = left;

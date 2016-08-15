@@ -45,9 +45,7 @@ test('should extract from min heap with correct root', t => {
   const h = new Heap((a, b) => a < b);
   h.insert(17);
   h.insert(22);
-  h.insert(52);
-  h.insert(91);
-  h.insert(25);
+  h.insert(33);
   const result = h.extract();
   t.true(h.heap[0] === Math.min.apply(null, h.heap));
   t.true(h.heap.findIndex(x => x === result) === -1);
