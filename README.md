@@ -3,10 +3,21 @@
 
 This is an effort to implement every major data structure/algorithm in a typical CS curriculum using ES6 Javascript modules with complete code coverage.
 
+### Data Structures/Algorithms Covered
+- Binary Trees
+- Linked lists
+- Stacks
+- Queues
+- Bubble sort
+- Insertion sort
+- Merge sort
+- Quick sort
+- Hash tables
+
 ### Installation
 1. Run `npm install`
 2. Run `npm test` to see test results with coverage report
-3. When developing, keep `ava -vw` running to watch for changes
+3. While developing, keep `ava -vw -m src/[prefix]*.spec.js` running to watch for changes
 
 ### Tooling
 - **Testing:** [Ava](https://github.com/avajs/ava) and [Istanbul](https://github.com/istanbuljs/nyc)

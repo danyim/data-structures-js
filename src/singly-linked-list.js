@@ -1,15 +1,9 @@
-export class LinkedListNode {
-  constructor(value, next = null, prev = null) {
-    this.value = value;
-    this.next = next;
-    this.prev = prev;
-  }
-}
+import LinkedListNode from './linked-list-node';
 
 /**
  * Singly-linked list
  */
-export class SinglyLinkedList {
+export default class SinglyLinkedList {
   constructor(first = null) {
     this.first = first;
   }
