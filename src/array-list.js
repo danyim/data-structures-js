@@ -1,13 +1,41 @@
 /**
- *
+ * ArrayList
  */
 export class ArrayList {
   constructor() {
     this.items = [];
+    this.lastIndex = -1;
   }
 
   add(value) {
+    // Since JS arrays don't have a fixed size, we'll try to mimic an ArrayList
+    // by pre-populating it to length n with null and only allowing list
+    // operations where nulls exist
+    // if(this.count() === 0) {
+    //   // This is the first element to be added, so fill to n = 2
+    //   this.fillToLength(2);
+    //   this.items[0] = value;
+    //   this.lastIndex = 0;
+    // }
+    // else {
+    //   if(this.count() + 1 > this.items.length) {
+    //     // If we're about to reach the end, double the space and append
+    //     this.fillToLength(Math.max(this.items.length, 1) * 2);
+    //   }
+    // }
+    if(this.count() + 1 > this.items.length) {
+      // If we're about to reach the end, double the space and append
+      this.fillToLength(Math.max(this.items.length, 1) * 2);
+    }
+    this.items[this.lastIndex + 1] = value;
+    this.lastIndex++;
+  }
 
+  fillToLength(length) {
+    if(length < this.items.length) {
+      throw new Error('Target length cannot be less than current length');
+    }
+    this.items.fill(null, this.items.length - 1, length - this.items.length);
   }
 
   remove(value) {
@@ -25,7 +53,7 @@ export class ArrayList {
   }
 
   count() {
-    return this.items.length;
+    return this.lastIndex + 1;
   }
 
   toString(delimiter = ', ') {
