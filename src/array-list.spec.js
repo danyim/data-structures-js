@@ -17,9 +17,22 @@ test('reports array list count correctly', t => {
 
 
 test('adds an item to the array list', t => {
-  // const list = new ArrayList();
+  const list = new ArrayList();
+  list.add('Tina');
+  list.add('Fred');
+  list.add('John');
+  list.add('Bob');
+  list.add('Fred');
+  list.add('Sarah');
+  // list.toString();
   // t.true(list.count === 0);
 });
+
+// test('fills the array to the appropriate length with nulls', t => {
+//   const list = new ArrayList();
+//   list.fillToLength(10);
+//   t.true(list.items.length === 10);
+// });
 
 // test('removes an item from the array list', t => {
 //   const list = new ArrayList();

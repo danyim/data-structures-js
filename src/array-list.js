@@ -23,14 +23,23 @@ export class ArrayList {
     //     this.fillToLength(Math.max(this.items.length, 1) * 2);
     //   }
     // }
+    console.log('before:', this.toString());
     if(this.count() + 1 > this.items.length) {
       // If we're about to reach the end, double the space and append
       this.fillToLength(Math.max(this.items.length, 1) * 2);
+      console.log(`breakpoint reached; about to double. curr ${this.items.length}, target ${Math.max(this.items.length, 1) * 2}`);
     }
     this.items[this.lastIndex + 1] = value;
     this.lastIndex++;
+    console.log(`lastIndex: ${this.lastIndex}`);
+    console.log('after:', this.toString());
+    console.log('______________________');
   }
 
+  /**
+   * Artifically lengthens the array by filling with nulls
+   * @param  {Number} length Length to fill to
+   */
   fillToLength(length) {
     if(length < this.items.length) {
       throw new Error('Target length cannot be less than current length');
@@ -59,10 +68,10 @@ export class ArrayList {
   toString(delimiter = ', ') {
     let returnStr = '';
     this.items.forEach(x => {
-      console.log('processing', x);
+      // console.log('processing', x);
       returnStr += `${returnStr}${delimiter}${x}`;
     });
-    console.log('returning', returnStr);
+    // console.log('returning', returnStr);
     return returnStr;
   }
 }
