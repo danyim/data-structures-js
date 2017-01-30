@@ -18,7 +18,7 @@ This is an effort to implement every major data structure/algorithm in a typical
 ### Installation
 1. Run `npm install`
 2. Run `npm test` to see test results with coverage report
-3. While developing, keep `ava -vw -m src/[prefix]*.spec.js` running to watch for changes
+3. While developing, run the following `ava -vw -m src/[prefix]*.spec.js` running to watch for changes in a specifc module. Or run `ava -vw -m src/[prefix]*.spec.js -m "*does xyz*"` to watch and only run tests that match the glob
 
 ### Tooling
 - **Testing:** [Ava](https://github.com/avajs/ava) and [Istanbul](https://github.com/istanbuljs/nyc)
