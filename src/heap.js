@@ -62,11 +62,9 @@ export default class Heap {
     const right = 2 * i + 2; // Right child
     let largest = i; // Root
     if (left < this.heap.length && this.comp(this.heap[left], this.heap[largest])) {
-      console.log('large left');
       largest = left;
     }
     if (right < this.heap.length && this.comp(this.heap[right], this.heap[largest])) {
-      console.log('large right');
       largest = right;
     }
     if (largest !== i) {
