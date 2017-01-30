@@ -60,9 +60,8 @@ export class ArrayList {
       throw new Error('Target length cannot be less than or equal to the workable area');
     }
     let currLen = this.items.length;
-    let value = null;
     for(let k = 0; k < currLen - targetLen; k++) {
-      value = this.items.pop();
+      this.items.pop();
     }
   }
 
