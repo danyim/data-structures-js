@@ -1,12 +1,14 @@
 /**
- * Heap
+ * Binary Heap
+ * ============================================================================
  * A heap is a specialized tree-based data structure that satisfies the heap
  * property: If A is a parent node of B then the key (the value) of node A is
  * ordered with respect to the key of node B with the same ordering applying
  * across the heap.
  *
- * Turn this implementation into a max heap or a min heap by sending in a
- * comparator function to the constructor
+ * This particular implementation is done in an array.
+ * You may turn this implementation into a max heap (default) or a min heap by
+ * depending on the comparator function passed into the constructor.
  */
 export default class Heap {
   constructor(comp = this.defaultComparator) {
@@ -55,13 +57,16 @@ export default class Heap {
    * @param  {Integer} i Index to "bubble down"
    */
   bubbleDown(i) {
-    const left = 2 * i + 1;
-    const right = 2 * i + 2;
-    let largest = i;
+    // console.log('bubbling down', this.heap[i]);
+    const left = 2 * i + 1; // Left child
+    const right = 2 * i + 2; // Right child
+    let largest = i; // Root
     if (left < this.heap.length && this.comp(this.heap[left], this.heap[largest])) {
+      console.log('large left');
       largest = left;
     }
     if (right < this.heap.length && this.comp(this.heap[right], this.heap[largest])) {
+      console.log('large right');
       largest = right;
     }
     if (largest !== i) {
