@@ -1,10 +1,10 @@
 /**
  * Binary Heap
  * ============================================================================
- * A heap is a specialized tree-based data structure that satisfies the heap
+ * "A heap is a specialized tree-based data structure that satisfies the heap
  * property: If A is a parent node of B then the key (the value) of node A is
  * ordered with respect to the key of node B with the same ordering applying
- * across the heap.
+ * across the heap." - Wikipedia
  *
  * This particular implementation is done in an array.
  * You may turn this implementation into a max heap (default) or a min heap by
