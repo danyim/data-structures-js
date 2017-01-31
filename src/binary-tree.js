@@ -11,6 +11,7 @@ export class TreeNode {
 
 /**
  * Binary Tree
+ * =============================================================================
  */
 export class BinaryTree {
   constructor(root = null) {
@@ -129,6 +130,22 @@ export class BinaryTree {
 
     return `${str}${left}${right}`;
   }
+
+  // TODO: Work on tree balancing
+  // balance() {
+
+  // }
+
+  // TODO: Work on tree balancing
+  /**
+   * Checks if the tree is unbalanced
+   * @return {Boolean} Returns true if unbalanced
+   */
+  // isUnbalanced(node = this.root, distance = 0) {
+  //   if(node.left) {
+
+  //   }
+  // }
 
   /**
    * Iterative implementation of a depth-first search algorithm. This generator
