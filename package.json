@@ -12,7 +12,7 @@
     "watch": "npm run build -- --watch",
     "debug": "devtool lib/*",
     "clean": "rimraf .nyc_output coverage *.log",
-    "test": "eslint src/*.js && nyc ava -v",
+    "test": "eslint src/*.js & nyc ava -v",
     "test:watch": "npm run test -- -w"
   },
   "repository": {
