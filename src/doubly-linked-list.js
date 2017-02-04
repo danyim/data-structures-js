@@ -80,7 +80,7 @@ export default class DoublyLinkedList {
     let current = this.head;
     let runner = this.head;
 
-    // Advnace the runner k - 1 away
+    // Advance the "runner" k - 1 away
     for(var i = 0; i < k - 1; i++) {
       if(runner === null) return null;
       runner = runner.next;

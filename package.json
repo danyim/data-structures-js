@@ -7,11 +7,13 @@
     "node": ">=4.0.0"
   },
   "scripts": {
+    "prebuild": "npm run clean",
     "build": "babel src -d lib",
-    "watch": "babel src -d lib --watch",
+    "watch": "npm run build -- --watch",
     "debug": "devtool lib/*",
-    "clean": "rm -rf .nyc_output coverage",
-    "test": "eslint src/*.js && nyc ava -v"
+    "clean": "rimraf .nyc_output coverage *.log",
+    "test": "eslint src/*.js && nyc ava -v",
+    "test:watch": "npm run test -- -w"
   },
   "repository": {
     "type": "git",
@@ -36,7 +38,8 @@
     "babel-preset-es2015-native-modules": "^6.9.2",
     "eslint": "^3.2.2",
     "nyc": "*",
-    "pre-commit": "^1.1.3"
+    "pre-commit": "^1.1.3",
+    "rimraf": "^2.5.4"
   },
   "ava": {
     "files": [
